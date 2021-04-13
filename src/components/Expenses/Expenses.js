@@ -1,31 +1,18 @@
-import ExpenseItem from "./ExpenseItem/ExpenseItem";
+import { useState } from 'react';
 
-import "./Expenses.css";
+import ExpenseItem from './ExpenseItem/ExpenseItem';
+import ExpensesFilter from './ExpensesFilter/ExpensesFilter';
+
+import './Expenses.css';
 
 const Expenses = (props) => {
-  const expenses = [
-    {
-      id: "e1",
-      title: "Food",
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-    },
-    { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
-    {
-      id: "e3",
-      title: "Car Insurance",
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-    },
-    {
-      id: "e4",
-      title: "New Desk (Wooden)",
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
-  ];
+  const [filterYear, setFilterYear] = useState('2021');
 
-  const items = expenses.map((el) => {
+  const filterDate = (date) => {
+    setFilterYear(date);
+  };
+
+  const items = props.expenses.map((el) => {
     return (
       <ExpenseItem
         title={el.title}
@@ -36,7 +23,12 @@ const Expenses = (props) => {
     );
   });
 
-  return <div className="expenses">{items}</div>;
+  return (
+    <div className="expenses">
+      <ExpensesFilter selectedYear={filterYear} onFilterDate={filterDate} />
+      {items}
+    </div>
+  );
 };
 
 export default Expenses;
