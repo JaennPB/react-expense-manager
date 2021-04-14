@@ -12,11 +12,11 @@ function App() {
   };
 
   return (
-    <div>
-      <h2>Expense Manager</h2>
+    <>
+      <h2 className="title">Expense Manager</h2>
       <NewExpense onNewExpense={newExpenseHandler} />
       <Expenses expenses={expenses} />
-    </div>
+    </>
   );
 }
 

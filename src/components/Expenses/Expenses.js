@@ -4,7 +4,7 @@ import ExpenseItem from './ExpenseItem/ExpenseItem';
 import ExpensesFilter from './ExpensesFilter/ExpensesFilter';
 import ExpensesChart from './ExpensesChart/ExpensesChart';
 
-import './Expenses.css';
+import styles from './Expenses.module.css';
 
 const Expenses = (props) => {
   const [filterYear, setFilterYear] = useState('2021');
@@ -33,7 +33,7 @@ const Expenses = (props) => {
   }
 
   return (
-    <div className="expenses">
+    <div className={styles.expenses}>
       <ExpensesFilter selectedYear={filterYear} onFilterDate={filterDate} />
       <ExpensesChart expenses={filteredExpenses} />
       {items}

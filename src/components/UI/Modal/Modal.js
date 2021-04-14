@@ -1,8 +1,10 @@
+import ReactDOM from 'react-dom';
+
 import Button from '../Button/Button';
 
 import styles from './Modal.module.css';
 
-const Modal = (props) => {
+const ErrorModal = (props) => {
   return (
     <div className={styles.backdrop} onClick={props.clicked}>
       <div className={styles.modal}>
@@ -11,6 +13,17 @@ const Modal = (props) => {
         <Button clicked={props.clicked}>Try Again</Button>
       </div>
     </div>
+  );
+};
+
+const Modal = (props) => {
+  return ReactDOM.createPortal(
+    <ErrorModal
+      onClick={props.clicked}
+      errorMessage={props.errorMessage}
+      clicked={props.clicked}
+    />,
+    document.getElementById('error-modal')
   );
 };
 

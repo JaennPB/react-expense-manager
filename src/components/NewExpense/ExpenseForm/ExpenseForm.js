@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Modal from '../../UI/Modal/Modal';
 import Button from '../../UI/Button/Button';
 
-import './ExpenseForm.css';
+import styles from './ExpenseForm.module.css';
 
 const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
@@ -85,16 +85,17 @@ const ExpenseForm = (props) => {
         <Modal errorMessage={error.errorMessage} clicked={closeModalHandler} />
       )}
       <form onSubmit={submitHandler}>
-        <div className="new-expense__controls">
-          <div className="new-expense__control">
+        <div className={styles.newExpense}>
+          <div className={styles.control}>
             <label>Title</label>
             <input
               type="text"
               onChange={changeTitleHandler}
               value={enteredTitle}
+              placeholder="e.j. Food"
             />
           </div>
-          <div className="new-expense__control">
+          <div className={styles.control}>
             <label>Amount</label>
             <input
               type="number"
@@ -102,9 +103,10 @@ const ExpenseForm = (props) => {
               step="0.01"
               onChange={changeAmountHandler}
               value={enteredAmount}
+              placeholder="e.j. 29.00"
             />
           </div>
-          <div className="new-expense__control">
+          <div className={styles.control}>
             <label>Date</label>
             <input
               type="date"
@@ -115,7 +117,7 @@ const ExpenseForm = (props) => {
             />
           </div>
         </div>
-        <div className="new-expense__actions">
+        <div className={styles.actions}>
           <Button clicked={props.onCancel} isSideButton>
             Cancel
           </Button>

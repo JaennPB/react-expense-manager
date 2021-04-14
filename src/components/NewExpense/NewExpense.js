@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ExpenseForm from './ExpenseForm/ExpenseForm';
 import Button from '../UI/Button/Button';
 
-import './NewExpense.css';
+import styles from './NewExpense.module.css';
 
 const NewExpense = (props) => {
   const [showForm, setShowForm] = useState(false);
@@ -27,7 +27,7 @@ const NewExpense = (props) => {
   };
 
   return (
-    <div className="new-expense">
+    <div className={styles.newExpense}>
       {showForm || (
         <Button clicked={toggleExpenseFormHandler}>Add new expense</Button>
       )}
