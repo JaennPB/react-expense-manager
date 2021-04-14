@@ -12,6 +12,12 @@
   margin: 1rem 0;
 }
 
+.control select {
+  background-color: #466572;
+  color: white;
+  border: none;
+}
+
 .expensesFilter label {
   font-weight: 300;
   margin-bottom: 0.5rem;

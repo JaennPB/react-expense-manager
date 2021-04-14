@@ -29,7 +29,11 @@ const Expenses = (props) => {
   });
 
   if (filteredExpenses.length === 0) {
-    items = <p className="expenses__fallback">No expenses from this year</p>;
+    items = (
+      <p className={styles.fallback}>
+        No expenses from this year... maybe add some?
+      </p>
+    );
   }
 
   return (

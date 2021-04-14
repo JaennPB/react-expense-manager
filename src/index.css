@@ -2,11 +2,13 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   font-family: 'montserrat', sans-serif;
-  height: 100vh;
+  height: fit-content;
 }
 
 body {
@@ -20,6 +22,8 @@ body {
     #0c375e,
     #0d3b66
   );
+  height: fit-content;
+  min-height: 100vh;
 }
 
 .title {

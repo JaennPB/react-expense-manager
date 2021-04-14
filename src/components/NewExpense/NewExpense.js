@@ -29,7 +29,15 @@ const NewExpense = (props) => {
   return (
     <div className={styles.newExpense}>
       {showForm || (
-        <Button clicked={toggleExpenseFormHandler}>Add new expense</Button>
+        <>
+          <Button clicked={() => {}} isSideButton add>
+            Add new income
+          </Button>
+
+          <Button clicked={toggleExpenseFormHandler} del>
+            Add new expense
+          </Button>
+        </>
       )}
       {showForm && (
         <ExpenseForm

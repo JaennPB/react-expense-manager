@@ -3,7 +3,9 @@ import styles from './Button.module.css';
 const Button = (props) => {
   return (
     <button
-      className={`${styles.button} ${props.isSideButton && styles.sideButton}`}
+      className={`${styles.button} ${props.isSideButton && styles.sideButton} ${
+        props.add && styles.add
+      } ${props.del && styles.del}`}
       onClick={props.clicked}
       type={props.type || 'button'}
     >

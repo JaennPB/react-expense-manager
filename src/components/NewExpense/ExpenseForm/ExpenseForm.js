@@ -118,10 +118,12 @@ const ExpenseForm = (props) => {
           </div>
         </div>
         <div className={styles.actions}>
-          <Button clicked={props.onCancel} isSideButton>
+          <Button clicked={props.onCancel} isSideButton del>
             Cancel
           </Button>
-          <Button type="submit">Add Expense</Button>
+          <Button type="submit" add>
+            Add expense
+          </Button>
         </div>
       </form>
     </>
