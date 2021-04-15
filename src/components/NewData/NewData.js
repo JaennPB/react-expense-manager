@@ -1,20 +1,14 @@
 import { useState } from 'react';
 
-import ExInForm from './ExInForm/ExInForm';
+import DataForm from './DataForm/DataForm';
 import Button from '../UI/Button/Button';
 
-import styles from './NewExIn.module.css';
+import styles from './NewData.module.css';
 
-const NewExIn = (props) => {
+const NewData = () => {
   const [showForm, setShowForm] = useState(false);
 
-  const formSubmitHandler = (data) => {
-    const expenseData = {
-      ...data,
-      id: Math.random().toString(),
-    };
-    props.onNewExpense(expenseData);
-
+  const formSubmitHandler = () => {
     setShowForm((prevState) => {
       setShowForm(!prevState);
     });
@@ -40,7 +34,8 @@ const NewExIn = (props) => {
         </>
       )}
       {showForm && (
-        <ExInForm
+        // FIXME: check if this is necessary or if it can be fixed with redux
+        <DataForm
           onFormSubmit={formSubmitHandler}
           onCancel={toggleExpenseFormHandler}
         />
@@ -49,4 +44,4 @@ const NewExIn = (props) => {
   );
 };
 
-export default NewExIn;
+export default NewData;

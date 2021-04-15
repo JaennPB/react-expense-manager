@@ -1,25 +1,26 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 
-import ExInItem from './ExInItem/ExInItem';
-import ExInFilter from './ExInFilter/ExInFilter';
+import DataItem from './DataItem/DataItem';
+import DataFilter from './DataFilter/DataFilter';
 import ExpensesChart from './ExpensesChart/ExpensesChart';
 
-import styles from './ExInData.module.css';
+import styles from './Data.module.css';
 
-const ExInData = (props) => {
+const Data = (props) => {
   const [filterYear, setFilterYear] = useState('2021');
 
   const filterDate = (date) => {
     setFilterYear(date);
   };
 
-  const filteredExpenses = props.expenses.filter((expense) => {
+  const filteredExpenses = props.expenseData.filter((expense) => {
     return expense.date.getFullYear().toString() === filterYear;
   });
 
   let items = filteredExpenses.map((el) => {
     return (
-      <ExInItem
+      <DataItem
         title={el.title}
         amount={el.amount}
         date={el.date}
@@ -34,11 +35,17 @@ const ExInData = (props) => {
 
   return (
     <div className={styles.expenses}>
-      <ExInFilter selectedYear={filterYear} onFilterDate={filterDate} />
+      <DataFilter selectedYear={filterYear} onFilterDate={filterDate} />
       <ExpensesChart expenses={filteredExpenses} />
       {items}
     </div>
   );
 };
 
-export default ExInData;
+const mapStateToProps = (state) => {
+  return {
+    expenseData: state.expenseData,
+  };
+};
+
+export default connect(mapStateToProps)(Data);

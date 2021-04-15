@@ -1,11 +1,11 @@
-import ExpenseDate from './ExInItemDate/ExInItemDate';
+import DataItemDate from './DataItemDate/DataItemDate';
 
-import styles from './ExInItem.module.css';
+import styles from './DataItem.module.css';
 
-const ExInItem = (props) => {
+const DataItem = (props) => {
   return (
     <div className={styles.expenseItem}>
-      <ExpenseDate date={props.date} />
+      <DataItemDate date={props.date} />
       <div className={styles.description}>
         <h2>{props.title}</h2>
         <div className={styles.price}>- ${props.amount}</div>
@@ -14,4 +14,4 @@ const ExInItem = (props) => {
   );
 };
 
-export default ExInItem;
+export default DataItem;

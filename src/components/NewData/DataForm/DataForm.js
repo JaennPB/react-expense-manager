@@ -1,11 +1,13 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 
 import Modal from '../../UI/Modal/Modal';
 import Button from '../../UI/Button/Button';
+import * as actions from '../../../store/actions/indexActions';
 
-import styles from './ExInForm.module.css';
+import styles from './DataForm.module.css';
 
-const ExInForm = (props) => {
+const DataForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
@@ -62,7 +64,12 @@ const ExInForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    props.onFormSubmit(inputData);
+    props.addExpense(inputData);
+    // FIXME:
+    // add redux state (submited, NOT submited) so that form automatically closes from redux
+    // and so that this can be removed
+    props.onFormSubmit();
+    // FIXME:
 
     setEnteredTitle('');
     setEnteredAmount('');
@@ -72,7 +79,7 @@ const ExInForm = (props) => {
   const closeModalHandler = () => {
     setError((prevState) => {
       return {
-        ...error,
+        ...prevState,
         isValid: true,
         errorMessage: '',
       };
@@ -130,4 +137,4 @@ const ExInForm = (props) => {
   );
 };
 
-export default ExInForm;
+export default connect(null, actions)(DataForm);

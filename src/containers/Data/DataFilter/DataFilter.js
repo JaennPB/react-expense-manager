@@ -1,6 +1,6 @@
-import styles from './ExInFilter.module.css';
+import styles from './DataFilter.module.css';
 
-const ExInFilter = (props) => {
+const DataFilter = (props) => {
   const changeYearHandler = (e) => {
     props.onFilterDate(e.target.value);
   };
@@ -21,4 +21,4 @@ const ExInFilter = (props) => {
   );
 };
 
-export default ExInFilter;
+export default DataFilter;

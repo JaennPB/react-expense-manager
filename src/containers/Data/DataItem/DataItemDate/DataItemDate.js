@@ -1,6 +1,6 @@
-import styles from './ExInItemDate.module.css';
+import styles from './DataItemDate.module.css';
 
-const ExInDate = (props) => {
+const DataItemDate = (props) => {
   const month = props.date.toLocaleString('en-US', { month: 'long' });
   const day = props.date.toLocaleString('en-US', { day: '2-digit' });
   const year = props.date.getFullYear();
@@ -14,4 +14,4 @@ const ExInDate = (props) => {
   );
 };
 
-export default ExInDate;
+export default DataItemDate;

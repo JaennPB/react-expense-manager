@@ -1,19 +1,17 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import authReducer from './store/reducers/authReducer';
-import expenseReducer from './store/reducers/expenseReducer';
-import incomeReducer from './store/reducers/incomeReducer';
+// import authReducer from './store/reducers/authReducer';
+import dataReducer from './store/reducers/dataReducer';
 
 import './index.css';
 import App from './App';
 
-const rootReducer = combineReducers({
-  expenses: expenseReducer,
-  income: incomeReducer,
-  auth: authReducer,
-});
+// const rootReducer = combineReducers({
+//   data: dataReducer,
+//   auth: authReducer,
+// });
 
 const composeEnhancers =
   process.env.NODE_ENV === 'development'
@@ -21,7 +19,7 @@ const composeEnhancers =
     : null || compose;
 
 const store = createStore(
-  rootReducer,
+  dataReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
 
