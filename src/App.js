@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Expenses from './components/Expenses/Expenses';
-import NewExpense from './components/NewExpense/NewExpense';
+import ExInData from './containers/ExInData/ExInData';
+import NewExIn from './components/NewExIn/NewExIn';
 
 function App() {
   const [expenses, setNewExpense] = useState([]);
@@ -14,8 +14,8 @@ function App() {
   return (
     <>
       <h2 className="title">Expense Manager</h2>
-      <NewExpense onNewExpense={newExpenseHandler} />
-      <Expenses expenses={expenses} />
+      <NewExIn onNewExpense={newExpenseHandler} />
+      <ExInData expenses={expenses} />
     </>
   );
 }

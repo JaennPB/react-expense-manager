@@ -3,9 +3,9 @@ import { useState } from 'react';
 import Modal from '../../UI/Modal/Modal';
 import Button from '../../UI/Button/Button';
 
-import styles from './ExpenseForm.module.css';
+import styles from './ExInForm.module.css';
 
-const ExpenseForm = (props) => {
+const ExInForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
@@ -130,4 +130,4 @@ const ExpenseForm = (props) => {
   );
 };
 
-export default ExpenseForm;
+export default ExInForm;

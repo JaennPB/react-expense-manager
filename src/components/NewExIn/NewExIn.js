@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-import ExpenseForm from './ExpenseForm/ExpenseForm';
+import ExInForm from './ExInForm/ExInForm';
 import Button from '../UI/Button/Button';
 
-import styles from './NewExpense.module.css';
+import styles from './NewExIn.module.css';
 
-const NewExpense = (props) => {
+const NewExIn = (props) => {
   const [showForm, setShowForm] = useState(false);
 
   const formSubmitHandler = (data) => {
@@ -40,7 +40,7 @@ const NewExpense = (props) => {
         </>
       )}
       {showForm && (
-        <ExpenseForm
+        <ExInForm
           onFormSubmit={formSubmitHandler}
           onCancel={toggleExpenseFormHandler}
         />
@@ -49,4 +49,4 @@ const NewExpense = (props) => {
   );
 };
 
-export default NewExpense;
+export default NewExIn;

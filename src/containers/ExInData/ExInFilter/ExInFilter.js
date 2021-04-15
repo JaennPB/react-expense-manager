@@ -1,6 +1,6 @@
-import styles from './ExpensesFilter.module.css';
+import styles from './ExInFilter.module.css';
 
-const ExpensesFilter = (props) => {
+const ExInFilter = (props) => {
   const changeYearHandler = (e) => {
     props.onFilterDate(e.target.value);
   };
@@ -21,4 +21,4 @@ const ExpensesFilter = (props) => {
   );
 };
 
-export default ExpensesFilter;
+export default ExInFilter;

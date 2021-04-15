@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import ExpenseItem from './ExpenseItem/ExpenseItem';
-import ExpensesFilter from './ExpensesFilter/ExpensesFilter';
+import ExInItem from './ExInItem/ExInItem';
+import ExInFilter from './ExInFilter/ExInFilter';
 import ExpensesChart from './ExpensesChart/ExpensesChart';
 
-import styles from './Expenses.module.css';
+import styles from './ExInData.module.css';
 
-const Expenses = (props) => {
+const ExInData = (props) => {
   const [filterYear, setFilterYear] = useState('2021');
 
   const filterDate = (date) => {
@@ -19,7 +19,7 @@ const Expenses = (props) => {
 
   let items = filteredExpenses.map((el) => {
     return (
-      <ExpenseItem
+      <ExInItem
         title={el.title}
         amount={el.amount}
         date={el.date}
@@ -29,20 +29,16 @@ const Expenses = (props) => {
   });
 
   if (filteredExpenses.length === 0) {
-    items = (
-      <p className={styles.fallback}>
-        No expenses from this year... maybe add some?
-      </p>
-    );
+    items = <p className={styles.fallback}>No data from this year...</p>;
   }
 
   return (
     <div className={styles.expenses}>
-      <ExpensesFilter selectedYear={filterYear} onFilterDate={filterDate} />
+      <ExInFilter selectedYear={filterYear} onFilterDate={filterDate} />
       <ExpensesChart expenses={filteredExpenses} />
       {items}
     </div>
   );
 };
 
-export default Expenses;
+export default ExInData;
