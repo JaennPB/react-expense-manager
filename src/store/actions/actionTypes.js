@@ -1,2 +1,7 @@
 // DATA ACTION TYPES
 export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const ADD_INCOME = 'ADD_INCOME';
+
+export const ADDING_INCOME = 'ADDING_INCOME';
+export const ADDING_EXPENSE = 'ADDING_EXPENSE';
+export const SUBMIT_OR_CANCEL = 'SUBMIT_OR_CANCEL';

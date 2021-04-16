@@ -1,1 +1,7 @@
-export { addExpense } from './dataActions';
+export {
+  addExpense,
+  addIncome,
+  addingExpense,
+  addingIncome,
+  submitOrCancel,
+} from './dataActions';

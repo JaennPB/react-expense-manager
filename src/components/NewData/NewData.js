@@ -1,47 +1,57 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 
 import DataForm from './DataForm/DataForm';
 import Button from '../UI/Button/Button';
+import * as actions from '../../store/actions/indexActions';
 
 import styles from './NewData.module.css';
 
-const NewData = () => {
+const NewData = (props) => {
   const [showForm, setShowForm] = useState(false);
 
-  const formSubmitHandler = () => {
+  const toggleShowFormState = () => {
     setShowForm((prevState) => {
       setShowForm(!prevState);
     });
   };
 
-  const toggleExpenseFormHandler = () => {
-    setShowForm((prevState) => {
-      setShowForm(!prevState);
-    });
+  const submitOrCancelHandler = () => {
+    toggleShowFormState();
+    props.submitOrCancel();
+  };
+
+  const addingIncome = () => {
+    toggleShowFormState();
+    props.addingIncome();
+  };
+
+  const addingExpense = () => {
+    toggleShowFormState();
+    props.addingExpense();
   };
 
   return (
     <div className={styles.newExpense}>
       {showForm || (
         <>
-          <Button clicked={() => {}} isSideButton add>
+          <Button clicked={addingIncome} isSideButton add>
             Add new income
           </Button>
 
-          <Button clicked={toggleExpenseFormHandler} del>
+          <Button clicked={addingExpense} del>
             Add new expense
           </Button>
         </>
       )}
       {showForm && (
-        // FIXME: check if this is necessary or if it can be fixed with redux
         <DataForm
-          onFormSubmit={formSubmitHandler}
-          onCancel={toggleExpenseFormHandler}
+          onFormSubmit={submitOrCancelHandler}
+          onCancel={submitOrCancelHandler}
         />
       )}
     </div>
   );
 };
 
-export default NewData;
+export default connect(null, actions)(NewData);

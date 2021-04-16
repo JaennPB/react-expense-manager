@@ -2,6 +2,9 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   expenseData: [],
+  incomeData: [],
+  addingExpense: false,
+  addingIncome: false,
 };
 
 const dataReducer = (state = initialState, actions) => {
@@ -15,6 +18,27 @@ const dataReducer = (state = initialState, actions) => {
           date: actions.payload.date,
           id: Math.random().toString(),
         }),
+      };
+    case actionTypes.ADD_INCOME:
+      return {
+        ...state,
+      };
+    case actionTypes.ADDING_EXPENSE:
+      return {
+        ...state,
+        addingExpense: true,
+      };
+    case actionTypes.ADDING_INCOME:
+      return {
+        ...state,
+        addingIncome: true,
+      };
+
+    case actionTypes.SUBMIT_OR_CANCEL:
+      return {
+        ...state,
+        addingExpense: false,
+        addingIncome: false,
       };
     default:
       return state;
