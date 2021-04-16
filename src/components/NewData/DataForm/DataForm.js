@@ -129,7 +129,8 @@ const DataForm = (props) => {
             Cancel
           </Button>
           <Button type="submit" add>
-            Add expense
+            {props.isAddingExpense && 'Add expense'}
+            {props.isAddingIncome && 'Add income'}
           </Button>
         </div>
       </form>
@@ -137,4 +138,11 @@ const DataForm = (props) => {
   );
 };
 
-export default connect(null, actions)(DataForm);
+const mapStateToProps = (state) => {
+  return {
+    isAddingExpense: state.addingExpense,
+    isAddingIncome: state.addingIncome,
+  };
+};
+
+export default connect(mapStateToProps, actions)(DataForm);
