@@ -66,8 +66,8 @@ const Data = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    expenseData: state.expenseData,
-    incomeData: state.incomeData,
+    expenseData: state.data.expenseData,
+    incomeData: state.data.incomeData,
   };
 };
 

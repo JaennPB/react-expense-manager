@@ -1,31 +1,30 @@
-.expensesFilter {
+.dataFilters {
   color: white;
   padding: 0 1rem;
 }
 
-.control {
+.filters {
   font-weight: 100;
-  display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
   margin: 1rem 0;
+
+  display: flex;
+  justify-content: space-between;
 }
 
-.control select {
+select {
   background-color: #466572;
   color: white;
   border: none;
-}
 
-.expensesFilter label {
-  font-weight: 300;
-  margin-bottom: 0.5rem;
-}
-
-.expensesFilter select {
   font: inherit;
-  padding: 0.5rem 3rem;
+  padding: 0.2rem 0.5rem;
   font-weight: 500;
   border-radius: 6px;
+}
+
+label {
+  font-weight: 300;
+  margin-right: 0.5rem;
 }

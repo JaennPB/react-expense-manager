@@ -1,17 +1,17 @@
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-// import authReducer from './store/reducers/authReducer';
 import dataReducer from './store/reducers/dataReducer';
+import filtersReducer from './store/reducers/filtersReducer';
 
 import './index.css';
 import App from './App';
 
-// const rootReducer = combineReducers({
-//   data: dataReducer,
-//   auth: authReducer,
-// });
+const rootReducer = combineReducers({
+  data: dataReducer,
+  filters: filtersReducer,
+});
 
 const composeEnhancers =
   process.env.NODE_ENV === 'development'
@@ -19,7 +19,7 @@ const composeEnhancers =
     : null || compose;
 
 const store = createStore(
-  dataReducer,
+  rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
 

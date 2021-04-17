@@ -61,6 +61,7 @@ const DataForm = (props) => {
     const inputData = {
       title: enteredTitle,
       amount: enteredAmount,
+      //FIXME: day is incorrect
       date: new Date(enteredDate),
     };
 
@@ -139,8 +140,8 @@ const DataForm = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isAddingExpense: state.addingExpense,
-    isAddingIncome: state.addingIncome,
+    isAddingExpense: state.data.addingExpense,
+    isAddingIncome: state.data.addingIncome,
   };
 };
 
