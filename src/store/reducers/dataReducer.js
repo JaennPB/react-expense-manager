@@ -22,6 +22,12 @@ const dataReducer = (state = initialState, actions) => {
     case actionTypes.ADD_INCOME:
       return {
         ...state,
+        incomeData: state.incomeData.concat({
+          title: actions.payload.title,
+          amount: actions.payload.amount,
+          date: actions.payload.date,
+          id: Math.random().toString(),
+        }),
       };
     case actionTypes.ADDING_EXPENSE:
       return {

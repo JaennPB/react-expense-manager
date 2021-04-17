@@ -31,9 +31,16 @@
   font-size: 1rem;
   font-weight: 300;
   color: white;
-  background-color: #e74c3c;
   padding: 0.5rem;
   border-radius: 12px;
+}
+
+.isExpense {
+  background-color: #e74c3c;
+}
+
+.isIncome {
+  background-color: #28b463;
 }
 
 @media (min-width: 580px) {

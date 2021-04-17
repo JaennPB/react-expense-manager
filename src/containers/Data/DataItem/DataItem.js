@@ -8,7 +8,13 @@ const DataItem = (props) => {
       <DataItemDate date={props.date} />
       <div className={styles.description}>
         <h2>{props.title}</h2>
-        <div className={styles.price}>- ${props.amount}</div>
+        <div
+          className={`${styles.price} ${props.isExpense && styles.isExpense} ${
+            props.isIncome && styles.isIncome
+          }`}
+        >
+          {props.isExpense && '-'} {props.isIncome && null} ${props.amount}
+        </div>
       </div>
     </div>
   );

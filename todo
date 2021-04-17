@@ -1,0 +1,7 @@
+filter by:
+    expense
+    data
+    year
+    month
+
+        maybe add reducer for data filtering?

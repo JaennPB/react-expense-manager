@@ -64,12 +64,11 @@ const DataForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    props.addExpense(inputData);
-    // FIXME:
-    // add redux state (submited, NOT submited) so that form automatically closes from redux
-    // and so that this can be removed
+    // short circuting
+    props.isAddingExpense && props.addExpense(inputData);
+    props.isAddingIncome && props.addIncome(inputData);
+
     props.onFormSubmit();
-    // FIXME:
 
     setEnteredTitle('');
     setEnteredAmount('');
