@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { connect } from 'react-redux';
 
 import DataItem from './DataItem/DataItem';
@@ -8,20 +7,29 @@ import ExpensesChart from './ExpensesChart/ExpensesChart';
 import styles from './Data.module.css';
 
 const Data = (props) => {
-  //TODO: move this to redux
-  const [filterYear, setFilterYear] = useState('2021');
-
-  const filterDate = (date) => {
-    setFilterYear(date);
-  };
-  //TODO: move this to redux
-
   const filteredExpenses = props.expenseData.filter((expense) => {
-    return expense.date.getFullYear().toString() === filterYear;
+    return (
+      (expense.type === props.filteredData &&
+        expense.date.getFullYear().toString() === props.filteredYear &&
+        expense.date.toLocaleString('default', { month: 'long' }) ===
+          props.filteredMonth) ||
+      // FIXME: fix 'ALL' category
+      (props.filteredYear === 'All' &&
+        props.filteredMonth === 'All' &&
+        props.filteredData === 'All')
+    );
   });
 
-  const filteredIcomes = props.incomeData.filter((income) => {
-    return income.date.getFullYear().toString() === filterYear;
+  const filteredIncomes = props.incomeData.filter((income) => {
+    return (
+      (income.type === props.filteredData &&
+        income.date.getFullYear().toString() === props.filteredYear &&
+        income.date.toLocaleString('default', { month: 'long' }) ===
+          props.filteredMonth) ||
+      (props.filteredYear === 'All' &&
+        props.filteredMonth === 'All' &&
+        props.filteredData === 'All')
+    );
   });
 
   let expenses = filteredExpenses.map((el) => {
@@ -36,7 +44,7 @@ const Data = (props) => {
     );
   });
 
-  let incomes = filteredIcomes.map((el) => {
+  let incomes = filteredIncomes.map((el) => {
     return (
       <DataItem
         title={el.title}
@@ -55,8 +63,13 @@ const Data = (props) => {
 
   return (
     <div className={styles.expenses}>
-      <DataFilter selectedYear={filterYear} onFilterDate={filterDate} />
-      <ExpensesChart expenses={filteredExpenses} />
+      <DataFilter />
+      {props.filteredData === 'expense' && (
+        <ExpensesChart expenses={props.expenseData} />
+      )}
+      {props.filteredData === 'income' && (
+        <ExpensesChart expenses={props.incomeData} />
+      )}
       {expenses}
       {incomes}
       {noData}
@@ -68,6 +81,9 @@ const mapStateToProps = (state) => {
   return {
     expenseData: state.data.expenseData,
     incomeData: state.data.incomeData,
+    filteredYear: state.filters.year,
+    filteredMonth: state.filters.month,
+    filteredData: state.filters.dataType,
   };
 };
 

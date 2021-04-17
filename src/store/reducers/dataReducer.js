@@ -5,6 +5,7 @@ const initialState = {
   incomeData: [],
   addingExpense: false,
   addingIncome: false,
+  type: 'expense',
 };
 
 const dataReducer = (state = initialState, actions) => {
@@ -17,6 +18,7 @@ const dataReducer = (state = initialState, actions) => {
           amount: actions.payload.amount,
           date: actions.payload.date,
           id: Math.random().toString(),
+          type: 'expense',
         }),
       };
     case actionTypes.ADD_INCOME:
@@ -27,6 +29,7 @@ const dataReducer = (state = initialState, actions) => {
           amount: actions.payload.amount,
           date: actions.payload.date,
           id: Math.random().toString(),
+          type: 'income',
         }),
       };
     case actionTypes.ADDING_EXPENSE:

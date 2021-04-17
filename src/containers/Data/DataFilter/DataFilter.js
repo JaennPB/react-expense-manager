@@ -24,6 +24,7 @@ const DataFilter = (props) => {
         <div>
           <label>Year</label>
           <select onChange={changeYearHandler} value={props.year}>
+            <option value="All">All</option>
             <option value="2025">2025</option>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
@@ -34,25 +35,27 @@ const DataFilter = (props) => {
         <div>
           <label>Month</label>
           <select onChange={changeMonthHandler} value={props.month}>
-            <option value="january">January</option>
-            <option value="february">February</option>
-            <option value="march">March</option>
-            <option value="april">April</option>
-            <option value="may">May</option>
-            <option value="june">June</option>
-            <option value="july">July</option>
-            <option value="august">August</option>
-            <option value="september">September</option>
-            <option value="october">October</option>
-            <option value="november">November</option>
-            <option value="december">December</option>
+            <option value="All">All</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
           </select>
         </div>
         <div>
           <label>Type of data</label>
           <select onChange={changeDataTypeHandler} value={props.dataType}>
-            <option value="expenses">Expenses</option>
-            <option value="incomes">Incomes</option>
+            <option value="All">All</option>
+            <option value="expense">Expenses</option>
+            <option value="income">Incomes</option>
           </select>
         </div>
       </div>

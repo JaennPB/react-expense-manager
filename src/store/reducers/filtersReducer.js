@@ -1,23 +1,23 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const months = [
-  'january',
-  'february',
-  'march',
-  'april',
-  'may',
-  'june',
-  'july',
-  'august',
-  'september',
-  'october',
-  'november',
-  'december',
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
 ];
 const initialState = {
-  year: new Date().getFullYear(),
+  year: new Date().getFullYear().toString(),
   month: months[new Date().getMonth()],
-  dataType: 'expenses',
+  dataType: 'expense',
 };
 
 const filterReducer = (state = initialState, actions) => {
