@@ -24,6 +24,10 @@
   color: white;
 }
 
+.date {
+  cursor: pointer;
+}
+
 .control input::placeholder {
   background-color: #466572;
   color: rgba(255, 255, 255, 0.425);

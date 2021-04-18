@@ -5,4 +5,9 @@ export {
   addingIncome,
   submitOrCancel,
 } from './dataActions';
-export { filterYear, filterMonth, filterDataType } from './filtersActions';
+export {
+  showFilters,
+  filterYear,
+  filterMonth,
+  filterDataType,
+} from './filtersActions';

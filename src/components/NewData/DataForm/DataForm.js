@@ -121,14 +121,15 @@ const DataForm = (props) => {
               max="2025-12-31"
               onChange={changeDateHandler}
               value={enteredDate}
+              className={styles.date}
             />
           </div>
         </div>
         <div className={styles.actions}>
-          <Button clicked={props.onCancel} isSideButton del>
+          <Button clicked={props.onCancel} isSideButton del color>
             Cancel
           </Button>
-          <Button type="submit" add>
+          <Button type="submit" add color>
             {props.isAddingExpense && 'Add expense'}
             {props.isAddingIncome && 'Add income'}
           </Button>

@@ -5,7 +5,9 @@ const Button = (props) => {
     <button
       className={`${styles.button} ${props.isSideButton && styles.sideButton} ${
         props.add && styles.add
-      } ${props.del && styles.del}`}
+      } ${props.del && styles.del} ${props.grey && styles.grey} ${
+        props.color && styles.color
+      } ${props.filterButton && styles.filterButton}`}
       onClick={props.clicked}
       type={props.type || 'button'}
     >

@@ -1,0 +1,26 @@
+.filters {
+  font-weight: 100;
+  width: 100%;
+  align-items: center;
+  margin: 1rem 0;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+select {
+  background-color: #466572;
+  color: white;
+  border: none;
+
+  font: inherit;
+  padding: 0.2rem 0.5rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+label {
+  font-weight: 300;
+  margin-right: 0.5rem;
+}

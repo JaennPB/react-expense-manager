@@ -1,5 +1,11 @@
 import * as actionTypes from './actionTypes';
 
+export const showFilters = () => {
+  return {
+    type: actionTypes.SHOW_FILTERS,
+  };
+};
+
 export const filterYear = (year) => {
   return {
     type: actionTypes.FILTER_YEAR,

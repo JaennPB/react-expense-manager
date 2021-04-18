@@ -35,11 +35,11 @@ const NewData = (props) => {
     <div className={styles.newExpense}>
       {showForm || (
         <>
-          <Button clicked={addingIncome} isSideButton add>
+          <Button clicked={addingIncome} isSideButton add color>
             Add new income
           </Button>
 
-          <Button clicked={addingExpense} del>
+          <Button clicked={addingExpense} del color>
             Add new expense
           </Button>
         </>

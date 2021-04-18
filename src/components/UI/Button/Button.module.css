@@ -8,6 +8,25 @@
   border-radius: 1rem;
   border: none;
   font-weight: 300;
+  outline: none;
+}
+
+.grey:hover {
+  background-color: #546f7a;
+  transform: translateY(-0.05rem);
+}
+
+.grey:active {
+  background-color: #607b86;
+  transform: translateY(0rem);
+}
+
+.color:hover {
+  transform: translateY(-0.05rem);
+}
+
+.color:active {
+  transform: translateY(0rem);
 }
 
 .sideButton {
@@ -20,4 +39,12 @@
 
 .del {
   background-color: #e74c3c;
+}
+
+.filterButton {
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+  box-shadow: none;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.5rem;
 }

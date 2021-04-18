@@ -1,10 +1,11 @@
 import Data from './containers/Data/Data';
 import NewData from './components/NewData/NewData';
+import Toolbar from './containers/toolbar/Toolbar';
 
 function App() {
   return (
     <>
-      <h2 className="title">Expense Manager</h2>
+      <Toolbar />
       <NewData />
       <Data />
     </>

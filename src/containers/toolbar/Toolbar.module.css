@@ -1,0 +1,17 @@
+.toolbarContainer {
+  background-color: #092a48;
+  height: fit-content;
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.logo {
+  color: white;
+  font-weight: 100;
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+}

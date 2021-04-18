@@ -18,10 +18,16 @@ const initialState = {
   year: new Date().getFullYear().toString(),
   month: months[new Date().getMonth()],
   dataType: 'expense',
+  showFilters: false,
 };
 
 const filterReducer = (state = initialState, actions) => {
   switch (actions.type) {
+    case actionTypes.SHOW_FILTERS:
+      return {
+        ...state,
+        showFilters: !state.showFilters,
+      };
     case actionTypes.FILTER_YEAR:
       return {
         ...state,

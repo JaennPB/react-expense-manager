@@ -1,34 +1,27 @@
 import { connect } from 'react-redux';
 
-import DataItem from './DataItem/DataItem';
+import DataItem from '../../components/DataItem/DataItem';
+import ExpensesChart from '../../components/ExpensesChart/ExpensesChart';
 import DataFilter from './DataFilter/DataFilter';
-import ExpensesChart from './ExpensesChart/ExpensesChart';
 
 import styles from './Data.module.css';
 
 const Data = (props) => {
   const filteredExpenses = props.expenseData.filter((expense) => {
     return (
-      (expense.type === props.filteredData &&
-        expense.date.getFullYear().toString() === props.filteredYear &&
-        expense.date.toLocaleString('default', { month: 'long' }) ===
-          props.filteredMonth) ||
-      // FIXME: fix 'ALL' category
-      (props.filteredYear === 'All' &&
-        props.filteredMonth === 'All' &&
-        props.filteredData === 'All')
+      expense.type === props.filteredData &&
+      expense.date.getFullYear().toString() === props.filteredYear &&
+      expense.date.toLocaleString('default', { month: 'long' }) ===
+        props.filteredMonth
     );
   });
 
   const filteredIncomes = props.incomeData.filter((income) => {
     return (
-      (income.type === props.filteredData &&
-        income.date.getFullYear().toString() === props.filteredYear &&
-        income.date.toLocaleString('default', { month: 'long' }) ===
-          props.filteredMonth) ||
-      (props.filteredYear === 'All' &&
-        props.filteredMonth === 'All' &&
-        props.filteredData === 'All')
+      income.type === props.filteredData &&
+      income.date.getFullYear().toString() === props.filteredYear &&
+      income.date.toLocaleString('default', { month: 'long' }) ===
+        props.filteredMonth
     );
   });
 
