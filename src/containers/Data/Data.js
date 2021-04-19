@@ -25,7 +25,7 @@ const Data = (props) => {
     );
   });
 
-  let expenses = filteredExpenses.map((el) => {
+  let expensesFiltered = filteredExpenses.map((el) => {
     return (
       <DataItem
         title={el.title}
@@ -37,7 +37,31 @@ const Data = (props) => {
     );
   });
 
-  let incomes = filteredIncomes.map((el) => {
+  let incomesFiltered = filteredIncomes.map((el) => {
+    return (
+      <DataItem
+        title={el.title}
+        amount={el.amount}
+        date={el.date}
+        key={el.id}
+        isIncome
+      />
+    );
+  });
+
+  const expesesNotFiltered = props.expenseData.map((el) => {
+    return (
+      <DataItem
+        title={el.title}
+        amount={el.amount}
+        date={el.date}
+        key={el.id}
+        isExpense
+      />
+    );
+  });
+
+  const incomesNotFiltered = props.incomeData.map((el) => {
     return (
       <DataItem
         title={el.title}
@@ -50,22 +74,38 @@ const Data = (props) => {
   });
 
   let noData;
-  if (expenses.length === 0 && incomes.length === 0) {
-    noData = <p className={styles.fallback}>No data from this year...</p>;
+  if (
+    (expensesFiltered.length || expesesNotFiltered.length) === 0 &&
+    (incomesFiltered.length || incomesNotFiltered.length) === 0
+  ) {
+    noData = (
+      <p className={styles.fallback}>
+        No items... please start adding some data
+      </p>
+    );
+  }
+
+  // FIXME: fix chart so that it can also show both expenes and income
+  // let filtersNotShown;
+  // if (!props.showFilteredData) {
+  //   filtersNotShown = <ExpensesChart expenses={props.expenseData} />;
+  // }
+
+  let chartFiltersShown;
+  if (props.showFilteredData && props.filteredData === 'expense') {
+    chartFiltersShown = <ExpensesChart expenses={props.expenseData} />;
+  } else if (props.showFilteredData && props.filteredData === 'income') {
+    chartFiltersShown = <ExpensesChart expenses={props.incomeData} />;
   }
 
   return (
     <div className={styles.expenses}>
-      <DataFilter />
-      {props.filteredData === 'expense' && (
-        <ExpensesChart expenses={props.expenseData} />
-      )}
-      {props.filteredData === 'income' && (
-        <ExpensesChart expenses={props.incomeData} />
-      )}
-      {expenses}
-      {incomes}
+      {/* {filtersNotShown} */}
       {noData}
+      {!noData && <DataFilter />}
+      {!props.showFilteredData && [expesesNotFiltered, incomesNotFiltered]}
+      {chartFiltersShown}
+      {props.showFilteredData && [expensesFiltered, incomesFiltered]}
     </div>
   );
 };
@@ -77,6 +117,7 @@ const mapStateToProps = (state) => {
     filteredYear: state.filters.year,
     filteredMonth: state.filters.month,
     filteredData: state.filters.dataType,
+    showFilteredData: state.filters.showFilters,
   };
 };
 

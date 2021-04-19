@@ -11,3 +11,6 @@ export const SHOW_FILTERS = 'SHOW_FILTERS';
 export const FILTER_YEAR = 'FILTER_YEAR';
 export const FILTER_MONTH = 'FILTER_MONTH';
 export const FILTER_DATA_TYPE = 'FILTER_DATA_TYPE';
+
+// AUTH ACTION TYPES
+export const AUTH_START = 'AUTH_START';

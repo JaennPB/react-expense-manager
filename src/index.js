@@ -2,15 +2,18 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+
+import App from './App';
 import dataReducer from './store/reducers/dataReducer';
 import filtersReducer from './store/reducers/filtersReducer';
+import authReducer from './store/reducers/authReducer';
 
 import './index.css';
-import App from './App';
 
 const rootReducer = combineReducers({
   data: dataReducer,
   filters: filtersReducer,
+  auth: authReducer,
 });
 
 const composeEnhancers =

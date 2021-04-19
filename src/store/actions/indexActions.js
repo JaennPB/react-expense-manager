@@ -11,3 +11,4 @@ export {
   filterMonth,
   filterDataType,
 } from './filtersActions';
+export { authStart } from './authActions';

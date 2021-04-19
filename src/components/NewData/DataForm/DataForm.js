@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 
-import Modal from '../../UI/Modal/Modal';
+import ErrorModal from '../../UI/ErrorModal/ErrorModal';
 import Button from '../../UI/Button/Button';
 import * as actions from '../../../store/actions/indexActions';
 
@@ -76,7 +76,7 @@ const DataForm = (props) => {
     setEnteredDate('');
   };
 
-  const closeModalHandler = () => {
+  const closeErrorModalHandler = () => {
     setError((prevState) => {
       return {
         ...prevState,
@@ -89,7 +89,10 @@ const DataForm = (props) => {
   return (
     <>
       {!error.isValid && (
-        <Modal errorMessage={error.errorMessage} clicked={closeModalHandler} />
+        <ErrorModal
+          errorMessage={error.errorMessage}
+          clicked={closeErrorModalHandler}
+        />
       )}
       <form onSubmit={submitHandler}>
         <div className={styles.newExpense}>
