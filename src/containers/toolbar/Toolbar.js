@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import Button from '../../components/UI/Button/Button';
 import Modal from '../../components/UI/Modal/Modal';
+import AuthFrom from './Auth/AuthForm/AuthForm';
 import * as actions from '../../store/actions/indexActions';
 
 import styles from './Toolbar.module.css';
@@ -11,7 +12,7 @@ const Toolbar = (props) => {
     <>
       {props.startAuth && (
         <Modal>
-          <p>Test</p>
+          <AuthFrom />
         </Modal>
       )}
       <div className={styles.toolbarContainer}>
